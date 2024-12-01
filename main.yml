@@ -1,0 +1,4 @@
+- name: Deploy microservices
+  hosts: localhost
+  roles:
+   - deploy

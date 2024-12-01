@@ -1,0 +1,13 @@
+- name: Install depensites
+  include_tasks: install_dep.yml
+  tags: install
+
+- name: Include clone_repos
+  include_tasks: clone_repos.yml
+  tags: start
+  
+- name: Include manage_servise
+  include_tasks: manage_service.yml
+  tags:
+   - start
+   - stop

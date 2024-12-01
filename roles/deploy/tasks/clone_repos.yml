@@ -1,0 +1,35 @@
+- name: Create package DevOps
+  ansible.builtin.file:
+   path: /tmp/devops
+   state: directory
+  tags: start
+   
+- name: Clone frontend repository
+  git:
+   repo: 'https://github.com/Vaival12/frontend.git'
+   dest: /tmp/devops/frontend/
+  tags: start
+   
+- name: Clone backend repository
+  git:
+   repo: 'https://github.com/Vaival12/backend.git'
+   dest: /tmp/devops/backend/
+  tags: start
+  
+- name: Copy Docker Backend file
+  template:
+   src: /home/vboxuser/Desktop/project/ansible/roles/deploy/templates/DockerfileBackend.yml.j2
+   dest: /tmp/devops/backend/Dockerfile
+  tags: start
+   
+- name: Copy Docker Frontend file
+  template:
+   src: /home/vboxuser/Desktop/project/ansible/roles/deploy/templates/DockerfileFrontend.yml.j2
+   dest: /tmp/devops/frontend/Dockerfile
+  tags: start
+  
+- name: Copy Docker-Compose file
+  template:
+   src: /home/vboxuser/Desktop/project/ansible/roles/deploy/templates/docker-compose.yml.j2
+   dest: /tmp/devops/docker-compose.yml
+  tags: start

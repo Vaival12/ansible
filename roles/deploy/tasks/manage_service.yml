@@ -1,0 +1,13 @@
+- name: Start microcervices
+  tags: start
+  command: docker compose up -d
+  args:
+   chdir: /tmp/devops
+  become: yes
+   
+- name: Stop microcervices
+  tags: stop
+  command: docker compose down
+  args:
+   chdir: /tmp/devops
+  become: yes
