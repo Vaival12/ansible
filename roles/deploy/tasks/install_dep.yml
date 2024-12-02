@@ -2,10 +2,12 @@
   apt:
     name: docker.io
     state: present
+  tags: install
   become: yes
 
 - name: Install Docker Compose
   apt:
     name: docker-compose
     state: present
+  tags: install
   become: yes
