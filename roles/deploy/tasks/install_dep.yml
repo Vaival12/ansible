@@ -1,9 +1,29 @@
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  tags: install
+
+- name: Install sudo
+  apt:
+    name: sudo
+    state: present
+  tags: install
+
+- name: Add user to sudoers
+  lineinfile:
+    path: /etc/sudoers
+    line: "youruser ALL=(ALL) NOPASSWD: ALL"
+    validate: 'visudo -cf %s'
+  become: yes
+  tags: install
+
 - name: Install curl
   apt:
    name: curl
    state: present
    update_cache: yes
   tags: install
+  become: yes
   
 - name: Install ssh
   apt:
@@ -11,27 +31,20 @@
    state: present
    update_cache: yes
   tags: install
-  
-- name: Update
-  apt:
-   update_cache: yes
-  tags: install
-  
-- name: Upgrade
-  apt:
-   upgrade: dist
-  tags: install
+  become: yes
   
 - name: Install Docker installation script
   get_url:
    url: "https://get.docker.com"
    dest: /tmp/get-docker.sh
   tags: install
+  become: yes
   
 - name: Run Docker script
   tags: install
   shell: |
    sh /tmp/get-docker.sh
+  become: yes
 
   
 
