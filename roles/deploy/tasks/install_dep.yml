@@ -4,7 +4,6 @@
    state: present
    update_cache: yes
   tags: install
-  become: yes
   
 - name: Install curl
   apt:
@@ -12,7 +11,6 @@
    state: present
    update_cache: yes
   tags: install
-  become: yes
   
 - name: Install ssh
   apt:
@@ -20,18 +18,15 @@
    state: present
    update_cache: yes
   tags: install
-  become: yes
   
 - name: Update
   apt:
    update_cache: yes
-  become: yes
   tags: install
   
 - name: Upgrade
   apt:
    upgrade: dist
-  become: yes
   tags: install
   
 - name: Install Docker installation script
@@ -39,11 +34,9 @@
    url: "https://get.docker.com"
    dest: /tmp/get-docker.sh
   tags: install
-  become: yes
   
 - name: Run Docker script
   tags: install
-  become: yes
   shell: |
    sh /tmp/get-docker.sh
 
