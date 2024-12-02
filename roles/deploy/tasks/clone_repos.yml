@@ -18,18 +18,18 @@
   
 - name: Copy Docker Backend file
   template:
-   src: /home/vboxuser/Desktop/project/ansible/roles/deploy/templates/DockerfileBackend.yml.j2
+   src: /var/jenkins_home/workspace/lab4/roles/deploy/templates/DockerfileBackend.yml.j2
    dest: /tmp/devops/backend/Dockerfile
   tags: install
    
 - name: Copy Docker Frontend file
   template:
-   src: /home/vboxuser/Desktop/project/ansible/roles/deploy/templates/DockerfileFrontend.yml.j2
+   src: /var/jenkins_home/workspace/lab4/roles/deploy/templates/DockerfileFrontend.yml.j2
    dest: /tmp/devops/frontend/Dockerfile
   tags: install
   
 - name: Copy Docker-Compose file
   template:
-   src: /home/vboxuser/Desktop/project/ansible/roles/deploy/templates/docker-compose.yml.j2
+   src: /var/jenkins_home/workspace/lab4/roles/deploy/templates/docker-compose.yml.j2
    dest: /tmp/devops/docker-compose.yml
   tags: install
