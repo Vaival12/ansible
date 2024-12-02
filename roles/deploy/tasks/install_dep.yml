@@ -4,7 +4,6 @@
    state: present
    update_cache: yes
   tags: install
-  become: yes
   
 - name: Install ssh
   apt:
