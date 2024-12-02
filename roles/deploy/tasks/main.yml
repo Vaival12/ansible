@@ -4,7 +4,7 @@
 
 - name: Include clone_repos
   include_tasks: clone_repos.yml
-  tags: start
+  tags: install
   
 - name: Include manage_servise
   include_tasks: manage_service.yml
