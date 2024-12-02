@@ -1,6 +1,6 @@
 - name: Start microcervices
   tags: start
-  command: docker compose up -d
+  command: docker compose up
   args:
    chdir: /tmp/devops
    
