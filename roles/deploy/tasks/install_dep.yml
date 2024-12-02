@@ -1,29 +1,11 @@
-- name: Install curl
+- name: Install Docker
   apt:
-   name: curl
-   state: present
-   update_cache: yes
-  tags: install
+    name: docker.io
+    state: present
   become: yes
-  
-- name: Install ssh
+
+- name: Install Docker Compose
   apt:
-   name: openssh-server
-   state: present
-   update_cache: yes
-  tags: install
-  
-- name: Install Docker installation script
-  get_url:
-   url: "https://get.docker.com"
-   dest: /tmp/get-docker.sh
-  tags: install
-  
-- name: Run Docker script
-  tags: install
-  shell: |
-   sh /tmp/get-docker.sh
-
-  
-
-
+    name: docker-compose
+    state: present
+  become: yes
