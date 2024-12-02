@@ -10,3 +10,4 @@
   command: docker-compose down
   args:
    chdir: /tmp/devops
+  become: yes
